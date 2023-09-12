@@ -43,7 +43,7 @@
         ```
 
 ### Checklist 3: Melakukan *routing* pada proyek agar dapat menjalankan aplikasi `main`.
-#### * Dilakukan nanti bersamaan dengan *routing* pada `urls.py` di direktori `main`
+#### * Dilakukan nanti bersamaan dengan *routing* pada `urls.py` aplikasi `main`
 1. Bukalah berkas `urls.py` di dalam direktori `game_locker` dan isi berkas dengan kode berikut.
     ```
     ...
@@ -118,4 +118,46 @@
 1. Centang bagian `HTTP Listener on PORT` dan klik `Deploy App` untuk memulai proses `deployment` aplikasi.
 
 ## Buatlah bagan yang berisi *request client* ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan berkas `html`.
+![Bagan Django](./images/bagan_django.png)
+### Penjelasan
+1. *User* mengirimkan HTTP *Request* ke aplikasi Django.
+2. Oleh `urls.py`, *request* tersebut akan diteruskan ke `views.py` yang sesuai.
+3. `views.py` akan menggunakan `models.py` jika perlu mengakses data dari *database*.
+4. Setelah selesai memproses *request*, `views.py` akan me-*render* HTML *template*.
+5. HTML yang sudah ter-*render* kemudian akan dikembalikan ke *user* sebagai HTTP *response*.
 
+## Jelaskan mengapa kita menggunakan ***virtual environment***? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan ***virtual environment***?
+*Virtual environment* dibutuhkan dalam pembuatan aplikasi web berbasis Django untuk mengisolasi Python dan *dependencies* yang diperlukan. Dengan menggunakan *virtual environment*, Python dan *dependencies* yang kita perlukan tidak tercampur dengan Python dan *packages* dari *base environment*. Kita sebenarnya bisa saja membuat aplikasi web Django tanpa menggunakan *virtual environment*. Akan tetapi, agar lebih mudah mengelola Python dan *dependencies*-nya, lebih baik tetap menggunakan *virtual environment*.
+
+## Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+### Penjelasan
+1. MVC atau *Model*-*View*-*Controller*:
+
+    - ***Model***</br>
+        Komponen *Model* berfungsi untuk membuat logika data aplikasi dan mengelola datanya. 
+    - ***View***</br>
+        Komponen *View* berisikan logika dan struktur tampilan data yang akan dilihat.
+    - ***Controller***</br>
+        Komponen *Controller* berfungsi untuk menangani *request* dan memberikan *response*. *Controller* bertindak sebagai penghubung antara *Model* dan *View*. Menentukan View apa yang akan di-*render*.
+
+1. MVT atau *Model*-*View*-*Template*:
+
+    - ***Model***</br>
+        Komponen *Model* berfungsi untuk membuat logika data aplikasi dan mengelola datanya.
+    - ***View***</br>
+        Komponen *View* berfungsi untuk menangani *request* dan memberikan *response*.
+    - ***Template***</br>
+        Komponen *Template* mendefinisikan struktur HTML yang nantinya akan di-*render*.
+
+1. MVVM atau *Model*-*View*-*ViewModel*:
+
+    - ***Model***</br>
+        Komponen *Model* berfungsi untuk membuat logika data aplikasi dan mengelola datanya.
+    - ***View***</br>
+        Komponen *View* berkaitan dengan struktur dan tampilan data yang akan dilihat. *View* berinteraksi dengan *ViewModel* melalui *data binding*.
+    - ***ViewModel***</br>
+        Komponen *ViewModel* bertindak sebagai penghubung antara *Model* dan *View*. *ViewModel* berfungsi untuk 
+
+### Perbedaan
+- Perbedaan utama antara MVC dan MVT adalah pada MVC kita harus membuat semua kode untuk kontrol. Pada MVT, bagian *controller* sudah ditangani oleh *framework*.
+- Perbedaan utama antara MVC dan MVVM adalah pada MVVM, *View* dapat berinteraksi langsung dengan propertinya di *ViewModel* menggunakan *data binding*.
