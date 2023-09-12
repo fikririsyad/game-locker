@@ -156,7 +156,7 @@
     - ***View***</br>
         Komponen *View* berkaitan dengan struktur dan tampilan data yang akan dilihat. *View* berinteraksi dengan *ViewModel* melalui *data binding*.
     - ***ViewModel***</br>
-        Komponen *ViewModel* bertindak sebagai penghubung antara *Model* dan *View*. *ViewModel* berfungsi untuk 
+        Komponen *ViewModel* bertindak sebagai penghubung antara *Model* dan *View*. *ViewModel* berisikan logika utama bisnis.
 
 ### Perbedaan
 - Perbedaan utama antara MVC dan MVT adalah pada MVC kita harus membuat semua kode untuk kontrol. Pada MVT, bagian *controller* sudah ditangani oleh *framework*.
