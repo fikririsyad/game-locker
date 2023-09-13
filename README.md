@@ -1,5 +1,7 @@
 # Game Locker 🎮
-## [Link to App](https://game-locker.adaptable.app/main/)
+#### Tautan aplikasi: https://game-locker.adaptable.app/main/
+<hr>
+
 ##  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Membuat sebuah proyek Django baru
 1. Membuat direktori baru untuk proyek ini dengan nama `game_locker`.
@@ -31,8 +33,8 @@
     python manage.py startapp main
     ```
 1. Tambahkan aplikasi main ke dalam proyek:
-    - Buka berkas `settings.py` di dalam direktori proyek `game_locker`
-    - Temukan variabel `INSTALLED_APPS`
+    - Buka berkas `settings.py` di dalam direktori proyek `game_locker`.
+    - Temukan variabel `INSTALLED_APPS`.
     - Daftarkan `main` ke dalam daftar aplikasi yang ada:
         ```
         INSTALLED_APPS = [
@@ -42,8 +44,8 @@
         ]
         ```
 
-### Checklist 3: Melakukan *routing* pada proyek agar dapat menjalankan aplikasi `main`.
-#### * Dilakukan nanti bersamaan dengan *routing* pada `urls.py` aplikasi `main`
+### Checklist 3: Melakukan *routing* pada proyek agar dapat menjalankan aplikasi `main`
+#### * Dilakukan nanti bersamaan dengan *routing* pada `urls.py` aplikasi `main`.
 1. Bukalah berkas `urls.py` di dalam direktori `game_locker` dan isi berkas dengan kode berikut.
     ```
     ...
@@ -56,7 +58,7 @@
     ]
     ```
 
-### Checklist 4: Membuat model pada aplikasi `main` dengan nama *Item* dan memiliki atribut wajib *name*, *amount*, *description*.
+### Checklist 4: Membuat model pada aplikasi `main` dengan nama *Item* dan memiliki atribut wajib *name*, *amount*, *description*
 1. Membuka berkas `models.py` di dalam direktori `main`.
 1. Mengisi `models.py` dengan kode berikut.
     ```
@@ -73,7 +75,7 @@
 1. Menjalankan perintah `python manage.py makemigrations` untuk membuat migrasi model. Berkas migrasi yang berisi perubahan model belum diaplikasikan ke dalam basis data.
 1. Menjalankan perintah `python manage.py migrate` untuk menerapkan migrasi ke dalam basis data lokal.
 
-### Checklist 5: Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
+### Checklist 5: Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu
 1. Membuat direktori bernama `templates` di dalam direktori `main`
 1. Membuat berkas `main.html` di dalam direktori `templates` dan diisi dengan teks berikut.
     ```
