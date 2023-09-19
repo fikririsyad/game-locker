@@ -205,6 +205,52 @@ Alasan utama JSON sering digunakan adalah karena ukuran berkas yang kecil dan pe
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Membuat input `form` untuk menambahkan objek model pada app sebelumnya.
+1. Membuat kerangka `views` dengan cara membuat direktori baru bernama `templates` pada direktori *root*.
+1. Membuat berkas `base.html` sebagai *template* dasar dan diisi dengan kode berikut:
+    ```
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+            />
+            {% block meta %}
+            {% endblock meta %}
+        </head>
+
+        <body>
+            {% block content %}
+            {% endblock content %}
+        </body>
+    </html>
+    ```
+1. Menambahkan kode berikut ke `settings.py` di dalam direktori `game_locker` agar *templates* di atas dapat terdeteksi:
+    ```
+    ...
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
+            'APP_DIRS': True,
+            ...
+        }
+    ]
+    ...
+    ```
+1. Membuat berkas `forms.py` di dalam direktori `main` dan mengisi berkas tersebut dengan kode berikut:
+    ```
+    from django.forms import ModelForm
+    from main.models import Item
+
+    class ItemForm(ModelForm):
+        class Meta:
+            model = Item
+            fields = ["name", "price", "amount", "genre", "description"]
+    ``` 
+1. Membuka berkas `views.py`
 ### Checklist 2: Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML *by ID*, dan JSON *by ID*.
 ### Checklist 3: Membuat routing URL untuk masing-masing `views` yang telah ditambahkan pada poin 2.
 
