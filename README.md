@@ -182,12 +182,10 @@
     - Akan mengumpulkan data dan meng-*encode* data tersebut untuk dikirimkan ke *server*.
     - Lebih aman untuk melindungi data karena tidak akan diekspos di URL.
     - Digunakan untuk *request* yang mengubah keadaan sistem, seperti *request* untuk melakukan perubahan di *database*.
-    - `POST` *request* bersifat tidak idempoten, yang artinya mengirimkan *request* berulang kali akan memengaruhi *server*.
 1. `GET`
     - Akan mengumpulkan data menjadi sebuah *string* kemudian *string* tersebut digunakan untuk membuat URL bersama dengan nilai-nilainya.
     - Lebih tidak aman karena akan mengekspos data di URL.
     - Digunakan untuk *request* yang tidak mengubah keadaan sistem, seperti formulir pencarian web.
-    - `GET` *request* bersifat idempoten, yang artinya mengirimkan *request* berulang kali tidak akan memengaruhi *server*.
 ### Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 1. XML
     - Format berkas untuk menyimpan dan mengirim data.
