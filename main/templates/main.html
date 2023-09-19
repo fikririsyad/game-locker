@@ -8,6 +8,11 @@
 
     <h5>Class:</h5>
     <p>{{class}}</p>
+    {% if total_items == 0 or total_items == 1%}
+        <p>You have saved {{total_items}} game in this app.</p>
+    {% else %}
+        <p>You have saved {{total_items}} games in this app.</p>
+    {% endif %}
     <table>
         <tr>
             <th>Name</th>
