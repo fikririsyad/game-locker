@@ -23,14 +23,14 @@
             <th>Date Added</th>
         </tr>
 
-        {% for product in products %}
+        {% for item in items %}
             <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.genre}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.genre}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.date_added}}</td>
             </tr>
         {% endfor %}
     </table>
