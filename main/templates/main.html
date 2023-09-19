@@ -1,3 +1,45 @@
-<h1>Game Locker</h1>
-<p>Name: {{ name }}</p>
-<p>Class: {{ class }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Game Locker</h1>
+
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Class:</h5>
+    <p>{{class}}</p>
+    {% if total_items == 0 or total_items == 1%}
+        <p>You have saved {{total_items}} game in this app.</p>
+    {% else %}
+        <p>You have saved {{total_items}} games in this app.</p>
+    {% endif %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Genre</th>
+            <th>Description</th>
+            <th>Date Added</th>
+        </tr>
+
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.genre}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.date_added}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br />
+
+    <a href="{% url 'main:create_item' %}">
+        <button>
+            Add New Item
+        </button>
+    </a>
+{% endblock content %}
