@@ -2,12 +2,12 @@
 #### Tautan aplikasi: https://game-locker.adaptable.app/main/
 
 ## Section
-- [Tugas 2](#tugas-2)
+- [Tugas 2](#tugas-2-implementasi-model-view-template-mvt-pada-django)
     - [Pertanyaan 1: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial)
     - [Pertanyaan 2: Bagan Django](#buatlah-bagan-yang-berisi-request-client-ke-web-aplikasi-berbasis-django-beserta-responnya-dan-jelaskan-pada-bagan-tersebut-kaitan-antara-urlspy-viewspy-modelspy-dan-berkas-html)
     - [Pertanyaan 3: Mengapa menggunakan *virtual environment*](#jelaskan-mengapa-kita-menggunakan-virtual-environment-apakah-kita-tetap-dapat-membuat-aplikasi-web-berbasis-django-tanpa-menggunakan-virtual-environment)
     - [Pertanyaan 4: Penjelasan dan perbedaan MVC, MVT, MVVM](#jelaskan-apakah-itu-mvc-mvt-mvvm-dan-perbedaan-dari-ketiganya)
-- [Tugas 3]()
+- [Tugas 3](#tugas-3-implementasi-form-dan-data-delivery-pada-django)
     - [Pertanyaan 1: Perbedaan form POST dan form GET](#apa-perbedaan-antara-form-post-dan-form-get-dalam-django)
     - [Pertanyaan 2: Perbedaan XML, JSON dan HTML dalam pengiriman data](#apa-perbedaan-utama-antara-xml-json-dan-html-dalam-konteks-pengiriman-data)
     - [Pertanyaan 3: Mengapa JSON sering digunakan dalam pertukaran data](#mengapa-json-sering-digunakan-dalam-pertukaran-data-antara-aplikasi-web-modern)
