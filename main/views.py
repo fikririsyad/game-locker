@@ -16,7 +16,7 @@ def show_main(request):
     items = Item.objects.filter(user=request.user)
 
     context = {
-        'name': request.user,
+        'name': request.user.username,
         'class': 'PBP C',
         'items': items,
         'total_items': items.count(),
@@ -34,6 +34,7 @@ def register(request):
             form.save()
             messages.success(request, 'Your account has been successfully created!')
             return redirect('main:login')
+        
     context = {'form':form}
     return render(request, 'register.html', context)
 

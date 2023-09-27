@@ -459,9 +459,13 @@ urlpatterns = [
 
 ## Tugas 4: Implementasi Autentikasi, Session, dan Cookies pada Django
 ### Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
+`UserCreationForm` adalah *built-in form* yang disediakan oleh Django untuk membuat *user* baru. Kelebihannya, kita tidak perlu susah-susah membuat formulir karena dengan menggunakan `UserCreationForm`, sudah disediakan tempat untuk mengisi *username* dan *password* serta beberapa syarat agar *password* tersebut valid. Kekurangannya, mungkin tampilan yang diberikan tidak sesuai dengan keinginan kita dan `UserCreationForm` hanya mempunyai *field* *username* dan *password* sehingga harus menambahkan kode lagi.
 ### Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi adalah proses untuk memverifikasi identitas pengguna yang sedang mengunjungi aplikasi Django melalui tahapan *login*. Otorisasi adalah proses untuk memverifikasi bahwa apakah pengguna mempunyai hak untuk mengakses misalnya data atau suatu halaman di aplikasi Django. Keduanya penting sebagai menjaga keamanan sistem aplikasi Django. Sehingga tidak semua orang bisa sembarang masuk ke aplikasi Django dan mengambil atau mengubah data yang ada.
 ### Apa itu *cookies* dalam konteks aplikasi web, dan bagaimana Django menggunakan *cookies* untuk mengelola data sesi pengguna?
+*Cookies* adalah sebuah berkas yang menyimpan data unik untuk mengidentifikasi komputer kita ke internet. Ketika kita pengguna membuka dan masuk ke aplikasi, Django akan membuat *cookies* yang nantinya akan disimpan di dalam memori *browser*. *Cookies* akan dihapus ketika pengguna *logout* dari aplikasi atau *browser* ditutup.
 ### Apakah penggunaan *cookies* aman secara *default* dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+*Cookies* yang diberikan oleh *website* tepercaya secara umum seharusnya aman untuk digunakan. Akan tetapi, masih ada risiko yang harus diwaspadai seperti *cookies poisoing* di mana penyerang akan memanipulasi *cookies* untuk mendapatkan akses ke akun pengguna dan mencuri informasi sensitif.
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
 1. Membuka `views.py` pada direktori `main` dan menambahkan kode di untuk membuat fungsi `register`:
