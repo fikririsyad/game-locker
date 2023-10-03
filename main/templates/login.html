@@ -5,41 +5,27 @@
 {% endblock meta %}
 
 {% block content %}
-
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login p-3 border-100 rounded shadow-sm bg-custom-light text-center">
+        <h1 class="fw-bold display-5">Login</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-group my-3">
+                <span class="input-group-text">Username</span>
+                <input type="text" name="username" class="form-control input-custom-width" placeholder="Username">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Password</span>
+                <input type="password" name="password" class="form-control input-custom-width" placeholder="Password">
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <button type="button submit" class="btn btn-custom-color mb-3" value="Login">Login</button>
+        </form>
+        <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+    </div>
 </div>
-
 {% endblock content %}

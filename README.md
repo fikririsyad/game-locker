@@ -19,6 +19,12 @@
     - [Pertanyaan 3: Apa itu *cookies* dan bagaimana Django menggunakannya](#apa-itu-cookies-dalam-konteks-aplikasi-web-dan-bagaimana-django-menggunakan-cookies-untuk-mengelola-data-sesi-pengguna)
     - [Pertanyaan 4: Apakah penggunaan *cookies* aman secara *default*](#apakah-penggunaan-cookies-aman-secara-default-dalam-pengembangan-web-atau-apakah-ada-risiko-potensial-yang-harus-diwaspadai)
     - [Pertanyaan 5: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-2)
+- [Tugas 5]()
+    - [Pertanyaan 1: Perbedaan form POST dan form GET](#apa-perbedaan-antara-form-post-dan-form-get-dalam-django)
+    - [Pertanyaan 2: Perbedaan XML, JSON dan HTML dalam pengiriman data](#apa-perbedaan-utama-antara-xml-json-dan-html-dalam-konteks-pengiriman-data)
+    - [Pertanyaan 3: Mengapa JSON sering digunakan dalam pertukaran data](#mengapa-json-sering-digunakan-dalam-pertukaran-data-antara-aplikasi-web-modern)
+    - [Pertanyaan 4: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-1)
+    - [Pertanyaan 5: Mengakses kelima URL dengan Postman](#mengakses-kelima-url-menggunakan-postman)
 ## Tugas 2: Implementasi *Model-View-Template* (MVT) pada Django
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Membuat sebuah proyek Django baru
@@ -682,4 +688,205 @@ Autentikasi adalah proses untuk memverifikasi identitas pengguna yang sedang men
     ...
     <h5>Last login: {{ last_login }}</h5>
     ...
+    ```
+
+## Tugas 5: Desain Web menggunakan HTML, CSS dan Framework CSS
+### Jelaskan manfaat dari setiap *element selector* dan kapan waktu yang tepat untuk menggunakannya.
+1. Universal selector</br>
+    Untuk memilih semua elemen pada HTML. Digunakan ketika ingin menerapkan gaya pada semua elemen.
+1. Element selector</br>
+    Untuk memilih semua elemen yang mempunyai nama elemen/*tag* yang sama. Digunakan ketika ingin menerapkan gaya pada suatu *tag* di semua berkas HTML.
+1. Class selector</br>
+    Untuk memilih semua konten yang memiliki value *class* yang sama. Digunakan ketika ingin menerapkan gaya pada semua elemen yang bisa saja mempunyai *tag* berbeda tetapi menerapkan *class* yang sama.
+1. Id selector</br>
+    Untuk memilih spesifik satu elemen yang mempunyai id yang sama, karena pada HTML semua id itu unik. Digunakan ketika ingin menerapkan gaya pada spesifik satu elemen itu saja.
+### Jelaskan HTML5 Tag yang kamu ketahui.
+1. a -> Mendefinisikan *hyperlink*
+1. body -> Mendefinisikan bagian *body* dari suatu berkas HTML yang berisikan konten utama dari suatu *webpage*
+1. br -> Membuat satu *line break*
+1. div -> Mendefinisikan suatu divisi atau bagian
+1. form -> Mendefinisikan form
+1. h1-h6 -> Mendefinisikan heading
+1. head -> Mendefinisikan bagian *head* dari suatu berkas HTML yang biasanya berisikan judul dan *metadata*
+1. html -> Menandakan awal dan akhir berkas HTML
+1. img -> Merepresentasikan gambar
+1. li -> Mendefinisikan *item* dari *list*
+1. link -> Menghubungkan berkas dari luar ke dalam berkas HTML
+1. ol -> Mendefinisikan *ordered list*
+1. ul -> Mendefinisikan *unordered list*
+1. p -> Mendefinisikan paragraf
+1. table -> Mendefinisikan tabel
+1. td -> Mendefinisikan sel tabel
+1. th -> Mendefinisikan *header* tabel
+1. tr -> Mendefinisikan baris tabel
+### Jelaskan perbedaan antara *margin* dan *padding*.
+#### Margin
+- Daerah atau kotak di luar konten elemen dan *border*.
+- Digunakan untuk mengatur jarak suatu elemen dengan elemen lainnya agar tidak bertabrakan.
+#### Padding
+- Daerah atau kotak di antara konten elemen dan *border*.
+- Digunakan untuk mengatur agar konten elemen tidak terlalu dekat dengan border.
+### Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+#### Tailwind
+- *Utility-first framework*, belum mempunyai komponen *premade* atau siap pakai.
+- Memiliki ukuran berkas CSS yang lebih kecil.
+- Lebih sulit untuk dipelajari karena harus mempelajari kelas utilitas yang ada.
+#### Bootstrap
+- *Components-based framework*, mempunyai komponen *premade* atau siap pakai.
+- Memiliki ukuran berkas CSS yang lebih besar.
+- Lebih mudah karena dapat langsung menggunakan komponen yang sudah tersedia.
+### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
+1. Membuat direktori `static` di direktori `root` dan menambahkan `styles.css` di dalamnya.
+1. Menambahkan kode ini di dalam `settings.py` agar berkas CSS dapat ditemukan oleh Django:
+    ```
+    ...
+    import os
+    ...
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    ```
+1. Menambahkan kode berikut di dalam `base.html` untuk menghubungkan berkas `styles.css` ke berkas ini serta memasukkan Bootstrap CSS dan JS:
+    ```
+    {% load static %}
+    ...
+    <head>
+        ...
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        ...
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+    ```
+1. Mengganti kode di dalam `{% block content %}` berkas `login.html`, `register.html`, `main.html`, dan `create_item.html` menjadi seperti berikut untuk mengubah tampilan menggunakan Bootstrap:
+    
+    #### `login.html`
+    ```
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login p-3 border-100 rounded shadow-sm bg-custom-light text-center">
+            <h1 class="fw-bold display-5">Login</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group my-3">
+                    <span class="input-group-text">Username</span>
+                    <input type="text" name="username" class="form-control input-custom-width" placeholder="Username">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Password</span>
+                    <input type="password" name="password" class="form-control input-custom-width" placeholder="Password">
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                <button type="button submit" class="btn btn-custom-color mb-3" value="Login">Login</button>
+            </form>
+            <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+        </div>
+    </div>
+    ```
+
+    #### `register.html`
+    ```
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div class="register p-3 border-100 rounded shadow-sm bg-custom-light">
+            <h1 class="fw-bold display-5 text-center">Register</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table class="my-3">  
+                    {{ form.as_table }}
+                </table>  
+                {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                <div class="text-center">
+                    <button type="button submit" class="btn btn-custom-color mb-3" value="Register">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    ```
+
+    #### `main.html`
+    ```
+    <div class="container-fluid">
+        <h1 class="fw-bold display-5">Game Locker</h1>
+        <h5>Name: {{ name }}</h5>
+        <h5>Class: {{ class }}</h5>
+        {% if total_items == 0 or total_items == 1%}
+            <p>You have saved {{total_items}} game in this app.</p>
+        {% else %}
+            <p>You have saved {{total_items}} games in this app.</p>
+        {% endif %}
+        <div class="d-grid gap-2 d-flex flex-wrap justify-content-center justify-content-md-start">
+            {% for item in items %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                        <p class="card-text">Rp{{ item.price }}</p>
+                        <p class="card-text">{{ item.amount }}</p>
+                        <p class="card-text">{{ item.genre }}</p>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">{{ item.date_added }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <br />
+        
+        <div class="d-grid gap-2 d-flex mb-3 justify-content-center justify-content-md-start">
+            <a href="{% url 'main:create_item' %}" class="btn btn-custom-color">Add New Item</a>
+            <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+        <h5>Last login: {{ last_login }}</h5>
+    </div>
+    ```
+
+    #### `create_item.html`
+    ```
+    <div class="container-fluid">
+            <h1 class="fw-bold display-5">Add Item</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table class="my-3">  
+                    {{ form.as_table }}
+                </table>  
+                <div class="">
+                    <button type="button submit" class="btn btn-custom-color mb-3" value="Add Item">Add Item</button>
+                </div>
+            </form>
+    </div>
+    ```
+1. Menambahkan kode berikut di dalam `style.css` untuk menambahkan kustomisasi pada beberap elemen:
+    ```
+    body {
+        background-color: #FFF8F0;
+    }
+
+    h1 {
+        color: #213555;
+    }
+
+    .bg-custom-light {
+        background-color: #D8C4B6;
+    }
+
+    .btn-custom-color {
+        background-color: #4F709C;
+        color: white;
+    }
+
+    .input-custom-width {
+        max-width: 300px;
+    }
+
+    .text-custom-color {
+        color: #213555;
+    }
     ```

@@ -1,53 +1,40 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<title>Game Locker</title>
+{% endblock meta %}
+
 {% block content %}
-    <h1>Game Locker</h1>
-
-    <h5>Name:</h5>
-    <p>{{name}}</p>
-
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+<div class="container-fluid">
+    <h1 class="fw-bold display-5">Game Locker</h1>
+    <h5>Name: {{ name }}</h5>
+    <h5>Class: {{ class }}</h5>
     {% if total_items == 0 or total_items == 1%}
         <p>You have saved {{total_items}} game in this app.</p>
     {% else %}
         <p>You have saved {{total_items}} games in this app.</p>
     {% endif %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Genre</th>
-            <th>Description</th>
-            <th>Date Added</th>
-        </tr>
-
+    <div class="d-grid gap-2 d-flex flex-wrap justify-content-center justify-content-md-start">
         {% for item in items %}
-            <tr>
-                <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.amount}}</td>
-                <td>{{item.genre}}</td>
-                <td>{{item.description}}</td>
-                <td>{{item.date_added}}</td>
-            </tr>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                    <p class="card-text">Rp{{ item.price }}</p>
+                    <p class="card-text">{{ item.amount }}</p>
+                    <p class="card-text">{{ item.genre }}</p>
+                    <p class="card-text">{{ item.description }}</p>
+                    <p class="card-text">{{ item.date_added }}</p>
+                </div>
+            </div>
         {% endfor %}
-    </table>
+    </div>
 
     <br />
-
-    <a href="{% url 'main:create_item' %}">
-        <button>
-            Add New Item
-        </button>
-    </a>
-
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
-
+    
+    <div class="d-grid gap-2 d-flex mb-3 justify-content-center justify-content-md-start">
+        <a href="{% url 'main:create_item' %}" class="btn btn-custom-color">Add New Item</a>
+        <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+    </div>
     <h5>Last login: {{ last_login }}</h5>
+</div>
 {% endblock content %}

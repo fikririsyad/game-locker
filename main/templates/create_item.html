@@ -1,19 +1,20 @@
 {% extends 'base.html' %} 
 
+{% block meta %}
+    <title>Create Item</title>
+{% endblock meta %}
+
 {% block content %}
-<h1>Add New Item</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Item"/>
-            </td>
-        </tr>
-    </table>
-</form>
-
+<div class="container-fluid">
+        <h1 class="fw-bold display-5">Add Item</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table class="my-3">  
+                {{ form.as_table }}
+            </table>  
+            <div class="">
+                <button type="button submit" class="btn btn-custom-color mb-3" value="Add Item">Add Item</button>
+            </div>
+        </form>
+</div>
 {% endblock %}
