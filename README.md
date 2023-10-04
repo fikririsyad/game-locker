@@ -19,12 +19,12 @@
     - [Pertanyaan 3: Apa itu *cookies* dan bagaimana Django menggunakannya](#apa-itu-cookies-dalam-konteks-aplikasi-web-dan-bagaimana-django-menggunakan-cookies-untuk-mengelola-data-sesi-pengguna)
     - [Pertanyaan 4: Apakah penggunaan *cookies* aman secara *default*](#apakah-penggunaan-cookies-aman-secara-default-dalam-pengembangan-web-atau-apakah-ada-risiko-potensial-yang-harus-diwaspadai)
     - [Pertanyaan 5: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-2)
-- [Tugas 5]()
-    - [Pertanyaan 1: Perbedaan form POST dan form GET](#apa-perbedaan-antara-form-post-dan-form-get-dalam-django)
-    - [Pertanyaan 2: Perbedaan XML, JSON dan HTML dalam pengiriman data](#apa-perbedaan-utama-antara-xml-json-dan-html-dalam-konteks-pengiriman-data)
-    - [Pertanyaan 3: Mengapa JSON sering digunakan dalam pertukaran data](#mengapa-json-sering-digunakan-dalam-pertukaran-data-antara-aplikasi-web-modern)
-    - [Pertanyaan 4: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-1)
-    - [Pertanyaan 5: Mengakses kelima URL dengan Postman](#mengakses-kelima-url-menggunakan-postman)
+- [Tugas 5](#tugas-5-desain-web-menggunakan-html-css-dan-framework-css)
+    - [Pertanyaan 1: Jelaskan manfaat dari setiap *element selector* dan kapan waktu yang tepat untuk menggunakannya](#jelaskan-manfaat-dari-setiap-element-selector-dan-kapan-waktu-yang-tepat-untuk-menggunakannya)
+    - [Pertanyaan 2: Jelaskan HTML5 Tag yang kamu ketahui](#jelaskan-html5-tag-yang-kamu-ketahui)
+    - [Pertanyaan 3: Jelaskan perbedaan antara *margin* dan *padding*](#jelaskan-perbedaan-antara-margin-dan-padding)
+    - [Pertanyaan 4: Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?](#jelaskan-perbedaan-antara-framework-css-tailwind-dan-bootstrap-kapan-sebaiknya-kita-menggunakan-bootstrap-daripada-tailwind-dan-sebaliknya)
+    - [Pertanyaan 5: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-3)
 ## Tugas 2: Implementasi *Model-View-Template* (MVT) pada Django
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Membuat sebuah proyek Django baru
