@@ -890,3 +890,145 @@ Autentikasi adalah proses untuk memverifikasi identitas pengguna yang sedang men
         color: #213555;
     }
     ```
+## Tugas 6: JavaScript dan Asynchronous JavaScript
+### Jelaskan perbedaan antara *asynchronous programming* dengan *synchronous programming*.
+Perbedaan utamanya adalah dalam *Asynchronous programming*, progam berjalan secara paralel. Dengan begitu, *throughput* program akan meningkat karena banyak operasi dapat dilakukan dalam satu waktu. *Asynchronous programming* mungkin lebih cocok untuk program-program yang saling tidak berhubungan/membutuhkan satu sama lain. Dalam *Sycchronous programming*, program berjalan secara sekuensial sehingga *throughput* progam akan lebih kecil karena operasi yang dapat dilakukan dalam satu waktu hanya satu. *Synchronous programming* mungkin lebih cocok untuk program-program yang membutuhkan hasil dari program sebelumnya untuk bisa dijanlakan.
+### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma *event-driven programming*. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+### Jelaskan penerapan *asynchronous programming* pada AJAX.
+### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada *library* jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
+1. Menambahkan kode berikut di dalam `views.py` untuk membuat fungsi yang mengembalikkan data JSON dan fungsi untuk menambahkan produk dengan AJAX:
+    ```
+    from django.http import HttpResponseNotFound
+    from django.views.decorators.csrf import csrf_exempt
+    ...
+    def get_item_json(request):
+        data = Item.objects.filter(pk=id)
+        return HttpResponse(serializers.serialize('json', data))
+
+    @csrf_exempt
+    def add_item_ajax(request):
+        if request.method == 'POST':
+            name = request.POST.get("name")
+            price = request.POST.get("price")
+            amount = request.POST.get("amount")
+            genre = request.POST.get("genre")
+            description = request.POST.get("description")
+            user = request.user
+
+            new_product = Item(name=name, price=price, amount=amount, genre=genre, description=description, user=user)
+            new_product.save()
+
+            return HttpResponse(b"CREATED", status=201)
+
+        return HttpResponseNotFound()
+    ```
+2. Menambahkan kode berikut di dalam `urls.py` untuk menambahkan *paths* ke kedua fungsi yang baru saja dibuat:
+    ```
+    from main.views import get_item_json, add_item_ajax
+    ...
+    path('get-item/', get_item_json, name='get_item_json'),
+    path('create-ajax/', add_item_ajax, name='add_item_ajax')
+    ```
+1. Pada berkas `main.html`, menghapus isi dari `div`  yang berisi *cards* dan menambahkan `id="item_cards"` di dalam atribut *tag*-nya. Kemudian, menambahkan kode JavaScript di bagian paling bawah berkas yaitu fungsi untuk mengambil item dan menampilkan item.
+    ```
+    <div id="item_cards" class="d-grid gap-2 d-flex flex-wrap justify-content-center justify-content-md-start"></div>
+    ...
+    <script>
+    async function getItems() {
+        return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+    }
+    
+    async function refreshItems() {
+        document.getElementById("item_cards").innerHTML = ""
+        const products = await getItems()
+        let htmlString = ``
+        products.forEach((item) => {
+            htmlString += `<div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">${item.fields.name}</h5>
+                    <p class="card-text">Rp${item.fields.price}</p>
+                    <p class="card-text">${item.fields.amount}</p>
+                    <p class="card-text">${item.fields.genre}</p>
+                    <p class="card-text">${item.fields.description}</p>
+                    <p class="card-text">${item.fields.date_added}</p>
+                </div>
+            </div>
+            `
+        })
+        
+        document.getElementById("item_cards").innerHTML = htmlString
+    }
+
+    refreshItems()
+    ...
+    </script>
+    ```
+1. Menambahkan kode berikut untuk membuat modal sebagai formulir beserta tombol untuk memunculkannya menggunakan Bootstrap:
+    ```
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="genre" class="col-form-label">Genre:</label>
+                            <input type="text" class="form-control" id="genre" name="genre"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-color" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                    <button type="button" class="btn btn-danger" id="button_close" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ...
+    <button type="button" class="btn btn-custom-color" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+    ```
+1. Menambahkan kode JavaScript berikut untuk menambahkan *item* dan me-reset modal ketika ditekan tombol *add* atau *close*:
+    ```
+    <script>
+        ...
+        function addItems() {
+            fetch("{% url 'main:add_item_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshItems)
+
+            resetModal()
+            return false
+        }
+        
+        function resetModal() {
+            document.getElementById("form").reset()
+        }
+        
+        document.getElementById("button_add").onclick = addItems
+        document.getElementById("button_close").onclick = resetModal
+        ...
+    </script>
+    ```
+1. Menjalankan perintah `python manage.py collectstatic`.
