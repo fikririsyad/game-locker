@@ -901,7 +901,16 @@ Paradigma *event-driven programming* adalah paradigma pemrograman di mana alur p
 Ketika terjadi suatu *event* di aplikasi web, JavaScript akan membuat objek *XMLHttpRequest dan dikirimkan ke *server*. *Server* akan memproses *request* tersebut dan mengirimkan kembali *response* ke halaman web. Setelah itu, JavaScript akan membaca *response* dan melakukan tindakan yang sesuai. Dengan menggunakan *asynchronous programming*, kita dapat mengambil data dan memperbaharui tampilan halaman web tanpa memuat kembali halaman tersebut.
 
 ### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada *library* jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Fetch API:
+- Native JavaScript
+- Menggunakan `Promise` untuk mempermudah meng-*handle* operasi *asynchronous*
+- Lebih fleksibel dan ringkas
+jQuery:
+- Library
+- Tidak menggunakan `Promise`
+- Kurang fleksibel dan bertele-tele
 
+Fetch API lebih disarankan untuk digunakan karena lebih modern, fleksibel, dan ringkas.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 1. Menambahkan kode berikut di dalam `views.py` untuk membuat fungsi yang mengembalikkan data JSON dan fungsi untuk menambahkan produk dengan AJAX:
