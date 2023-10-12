@@ -893,9 +893,16 @@ Autentikasi adalah proses untuk memverifikasi identitas pengguna yang sedang men
 ## Tugas 6: JavaScript dan Asynchronous JavaScript
 ### Jelaskan perbedaan antara *asynchronous programming* dengan *synchronous programming*.
 Perbedaan utamanya adalah dalam *Asynchronous programming*, progam berjalan secara paralel. Dengan begitu, *throughput* program akan meningkat karena banyak operasi dapat dilakukan dalam satu waktu. *Asynchronous programming* mungkin lebih cocok untuk program-program yang saling tidak berhubungan/membutuhkan satu sama lain. Dalam *Sycchronous programming*, program berjalan secara sekuensial sehingga *throughput* progam akan lebih kecil karena operasi yang dapat dilakukan dalam satu waktu hanya satu. *Synchronous programming* mungkin lebih cocok untuk program-program yang membutuhkan hasil dari program sebelumnya untuk bisa dijanlakan.
+
 ### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma *event-driven programming*. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma *event-driven programming* adalah paradigma pemrograman di mana alur program ditentukan oleh *event* yang terjadi dalam eksekusinya. Contohnya dalam tugas ini adalah ketika meng-klik tombol *add*, akan menghasilkan *event* yang kemudian akan di-handle oleh kode JavaScript dengan menjalankan fungsi *addItems*.
+
 ### Jelaskan penerapan *asynchronous programming* pada AJAX.
+Ketika terjadi suatu *event* di aplikasi web, JavaScript akan membuat objek *XMLHttpRequest dan dikirimkan ke *server*. *Server* akan memproses *request* tersebut dan mengirimkan kembali *response* ke halaman web. Setelah itu, JavaScript akan membaca *response* dan melakukan tindakan yang sesuai. Dengan menggunakan *asynchronous programming*, kita dapat mengambil data dan memperbaharui tampilan halaman web tanpa memuat kembali halaman tersebut.
+
 ### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada *library* jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 1. Menambahkan kode berikut di dalam `views.py` untuk membuat fungsi yang mengembalikkan data JSON dan fungsi untuk menambahkan produk dengan AJAX:
     ```
