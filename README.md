@@ -25,6 +25,12 @@
     - [Pertanyaan 3: Jelaskan perbedaan antara *margin* dan *padding*](#jelaskan-perbedaan-antara-margin-dan-padding)
     - [Pertanyaan 4: Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?](#jelaskan-perbedaan-antara-framework-css-tailwind-dan-bootstrap-kapan-sebaiknya-kita-menggunakan-bootstrap-daripada-tailwind-dan-sebaliknya)
     - [Pertanyaan 5: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-3)
+- [Tugas 6](#tugas-6-javascript-dan-asynchronous-javascript)
+    - [Pertanyaan 1: Jelaskan perbedaan antara *asynchronous programming* dengan *synchronous programming*.](#jelaskan-perbedaan-antara-asynchronous-programming-dengan-synchronous-programming)
+    - [Pertanyaan 2: Jelaskan *event-driven programming* dan berikan contohnya pada tugas ini](#dalam-penerapan-javascript-dan-ajax-terdapat-penerapan-paradigma-event-driven-programming-jelaskan-maksud-dari-paradigma-tersebut-dan-sebutkan-salah-satu-contoh-penerapannya-pada-tugas-ini)
+    - [Pertanyaan 3: Jelaskan penerapan *asynchronous programming* pada AJAX](#jelaskan-penerapan-asynchronous-programming-pada-ajax)
+    - [Pertanyaan 4: Bandingkan Fetch API dan jQuery](#pada-pbp-kali-ini-penerapan-ajax-dilakukan-dengan-menggunakan-fetch-api-daripada-library-jquery-bandingkanlah-kedua-teknologi-tersebut-dan-tuliskan-pendapat-kamu-teknologi-manakah-yang-lebih-baik-untuk-digunakan)
+    - [Pertanyaan 5: Implementasi](#jelaskan-bagaimana-cara-kamu-mengimplementasikan-checklist-di-atas-secara-step-by-step-bukan-hanya-sekadar-mengikuti-tutorial-4)
 ## Tugas 2: Implementasi *Model-View-Template* (MVT) pada Django
 ### Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 ### Checklist 1: Membuat sebuah proyek Django baru
