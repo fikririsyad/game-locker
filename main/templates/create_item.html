@@ -6,14 +6,14 @@
 
 {% block content %}
 <div class="container-fluid">
-        <h1 class="fw-bold display-5">Add Item</h1>
+        <h1 style="color: #213555" class="fw-bold display-5">Add Item</h1>
         <form action="" method="POST">
             {% csrf_token %}
             <table class="my-3">  
                 {{ form.as_table }}
             </table>  
             <div class="">
-                <button type="button submit" class="btn btn-custom-color mb-3" value="Add Item">Add Item</button>
+                <button type="button submit" class="btn mb-3" style="background-color: #4F709C; color: white" value="Add Item">Add Item</button>
             </div>
         </form>
 </div>

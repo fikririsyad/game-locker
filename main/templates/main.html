@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h1 class="fw-bold display-5">Game Locker</h1>
+    <h1 class="fw-bold display-5" style="color: #213555">Game Locker</h1>
     <h5>Name: {{ name }}</h5>
     <h5>Class: {{ class }}</h5>
     {% if total_items == 0 or total_items == 1%}
@@ -51,15 +51,15 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-custom-color" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                    <button type="button" class="btn" style="background-color: #4F709C; color: white" id="button_add" data-bs-dismiss="modal">Add Product</button>
                     <button type="button" class="btn btn-danger" id="button_close" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="d-grid gap-2 d-flex mb-3 justify-content-center justify-content-md-start">
-        <a href="{% url 'main:create_item' %}" class="btn btn-custom-color">Add New Item</a>
-        <button type="button" class="btn btn-custom-color" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+        <a href="{% url 'main:create_item' %}" class="btn" style="background-color: #4F709C; color: white">Add New Item</a>
+        <button type="button" class="btn" style="background-color: #4F709C; color: white" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
         <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
     </div>
 

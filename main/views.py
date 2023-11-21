@@ -25,6 +25,7 @@ def show_main(request):
 
     return render(request, "main.html", context)
 
+@csrf_exempt
 def register(request):
     form = UserCreationForm()
 

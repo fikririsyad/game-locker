@@ -6,24 +6,24 @@
 
 {% block content %}
 <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
-    <div class="login p-3 border-100 rounded shadow-sm bg-custom-light text-center">
-        <h1 class="fw-bold display-5">Login</h1>
+    <div class="login p-3 border-100 rounded shadow-sm text-center" style="background-color: #D8C4B6">
+        <h1 style="color: #213555" class="fw-bold display-5">Login</h1>
         <form action="" method="POST">
             {% csrf_token %}
             <div class="input-group my-3">
                 <span class="input-group-text">Username</span>
-                <input type="text" name="username" class="form-control input-custom-width" placeholder="Username">
+                <input type="text" name="username" class="form-control" style="max-width: 300px" placeholder="Username">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">Password</span>
-                <input type="password" name="password" class="form-control input-custom-width" placeholder="Password">
+                <input type="password" name="password" class="form-control" style="max-width: 300px" placeholder="Password">
             </div>
             {% if messages %}
                 {% for message in messages %}
                     <p>{{ message }}</p>
                 {% endfor %}
             {% endif %}
-            <button type="button submit" class="btn btn-custom-color mb-3" value="Login">Login</button>
+            <button type="button submit" class="btn mb-3" style="background-color: #4F709C; color: white" value="Login">Login</button>
         </form>
         <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
     </div>
